@@ -38,18 +38,22 @@ class ListContacts extends Component {
         return(
             <div className='list-contacts'>
                 <div className='list-contacts-top'>
-                    <input 
+                    <input
                         className='search-contacts'
                         type='text'
                         placeholder='Search contacts'
                         value={this.state.query}
                         onChange={(event) => this.updateQuery(event.target.value)}
                     />
+                    <a
+                        href="#create"
+                        onClick={this.props.onNavigate}
+                        className="add-contact">Add Contact</a>
                 </div>
 
                 {showingContacts.length !== contacts.length && (
                     <div className='showing-contacts'>
-                        <span>Now showing {showingContacts.length} of {contacts.length} total</span> 
+                        <span>Now showing {showingContacts.length} of {contacts.length} total</span>
                         <button onClick={this.clearQuery}>Show all</button>
                     </div>
                 )}
